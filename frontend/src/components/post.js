@@ -7,7 +7,7 @@ const Post = () => {
         alert("Clicked!!");
     }
 
-    return <Button className={styles.post} colorScheme="red" onClick={clicked}>+</Button>
+    return <Button className={styles.post} colorScheme="red" onClick={clicked}><span>+</span></Button>
 };
 
 export default Post;
