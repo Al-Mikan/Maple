@@ -1,7 +1,7 @@
-import styles from "../styles/Toppage.module.scss"
+import styles from "../styles/Toppage.module.css"
 
 const Toppage = () => {
-    return <div>
+    return <div className={styles.Toppagewrapper}>
         aaaaa
     </div>;
 };
