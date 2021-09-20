@@ -1,6 +1,7 @@
 .Toppagewrapper{
     background-color: yellowgreen;
     height: 100vh;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0px 10%;
+    /* margin-left: 10%;
+    margin-right: 10%; */
 }
