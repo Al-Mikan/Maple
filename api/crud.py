@@ -10,7 +10,7 @@ def get_all_posts(db: Session):
 def create_post(db: Session, post: schemas.CreatePost):
     # TODO: 画像を保存してパスを取得
     image_path = "todo"
-    db_post = models.Post(
+    db_post = models.Posts(
         garigariname=post.garigariName,
         imagePath=image_path,
         comment=post.comment,
