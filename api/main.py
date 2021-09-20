@@ -1,7 +1,22 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 import uvicorn
+from sqlalchemy.orm import Session
+import crud
+import models
+import schemas
+from database import SessionLocal, engine
+
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+# Dependency
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 
 @app.get("/")
@@ -15,7 +30,8 @@ async def posts():
 
 
 @app.post("/post")
-async def post():
+async def post(post: schemas.CreatePost, db: Session = Depends(get_db)):
+    print(post)
     return {"message": "post here"}
 
 
