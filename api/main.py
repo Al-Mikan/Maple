@@ -13,9 +13,6 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-
-app = FastAPI()
-
 app.mount("/static", StaticFiles(directory="uploads"), name="static")
 
 # Dependency
