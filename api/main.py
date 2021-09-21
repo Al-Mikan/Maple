@@ -7,14 +7,18 @@ import schemas
 from database import SessionLocal, engine
 import os
 import uuid
+from fastapi.staticfiles import StaticFiles
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+
+app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="uploads"), name="static")
+
 # Dependency
-
-
 def get_db():
     db = SessionLocal()
     try:
@@ -45,6 +49,9 @@ async def post(post: schemas.CreatePost, db: Session = Depends(get_db)):
 async def favorite():
     return {"message": "this is favorite"}
 
+# TODO: 画像保存の部分を関数として切り出す
+# TODO: /post に画像のやつも組み込む
+# schemas も更新
 
 @app.post("/uploadfile/")
 async def create_upload_file(file: UploadFile = File(...), title: str = Form(...)):
