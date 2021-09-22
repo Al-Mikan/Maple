@@ -1,11 +1,11 @@
-let target = document.getElementById('find-me');
+// let target = document.getElementById('find-me');
 
-target.addEventListener('click', eventFunc);
+// target.addEventListener('click', eventFunc);
 
-function eventFunc(){
-  // クリックされた時の処理を書く
-  console.log('click');
-}
+// function eventFunc(){
+//   // クリックされた時の処理を書く
+//   console.log('click');
+// }
 
 const position = () => {
 
