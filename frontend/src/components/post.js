@@ -1,4 +1,5 @@
 import styles from "../styles/post.module.css";
+
 import {
   Modal,
   ModalOverlay,
@@ -9,26 +10,45 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Lorem,
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import React from "react";
+import {useState} from "react";
+import { getPosition } from "../utils";
 
 const Post = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  let [value, setValue] = React.useState("");
+  let [value, setValue] = useState("");
+  let [lat, setLat] = useState("");
+  let [lng, setLng] = useState("");
 
   let handleInputChange = (e) => {
     let inputValue = e.target.value;
     setValue(inputValue);
   };
 
-  
+  const position = () => {
+    onOpen();
+    console.log("OK");
+    getPosition().then((position) => {
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+      setLat(position.coords.latitude);
+      setLng(position.coords.longitude);
+    });
+  };
+
+  const handlePost = () => {
+    console.log("postするぞ");
+    // コメント
+    // 画像
+    // 位置情報をポスト // lat, lng
+    console.log(value, lat, lng)
+  };
 
   return (
     <div>
-      <Button  className={styles.post} colorScheme="red" onClick={onOpen}>
+      <Button className={styles.post} colorScheme="red" onClick={position}>
         <span>+</span>
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -41,17 +61,17 @@ const Post = () => {
           <ModalBody>
             <Text mb="8px">コメント</Text>
             <Textarea
-              value={value}
               onChange={handleInputChange}
+              value={value}
               placeholder="ここにコメントを書いてね！"
               size="md"
             />
           </ModalBody>
-
           <ModalCloseButton />
-
           <ModalFooter>
-            <Button variant="ghost"> 保存</Button>
+            <Button variant="ghost" onClick={handlePost}>
+              保存
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

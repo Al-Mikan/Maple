@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import PlaceInfo from "./PlaceInfo";
 // import mapStyles from "./mapUtils/mapStyles";
@@ -21,6 +21,7 @@ const options = {
 
 export default function GoogleMapComponent() {
     console.log(process.env.REACT_APP_googleMapsApiKey)
+  const [pins, setPins] = useState([])
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyBD6NxRqB5cqcDexWejFUubgObA54SwB54",
@@ -33,8 +34,18 @@ export default function GoogleMapComponent() {
   }, []);
   //API読み込み後に再レンダーを引き起こさないため、useStateを使わず、useRefとuseCallbackを使っています。
 
+  useEffect(()=>{
+    if(isLoaded){
+      // 初手でデータの取得
+      // let inputPins = ???;
+      // setPinsで保存
+      // setPins(inputPins);
+    }
+  },[isLoaded])
+
   if (loadError) return "Error";
   if (!isLoaded) return "Loading...";
+
 
   return (
     <GoogleMap
