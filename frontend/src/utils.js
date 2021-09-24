@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 
 function getLocation(options) {
   return new Promise((resolve, reject) =>
@@ -83,15 +83,19 @@ export const postToServer = async (garigariName, comment, lat, lng, image) => {
   formData.append("comment", comment);
   formData.append("lat", lat);
   formData.append("lng", lng);
-  formData.append('image', image.files[0])
+  formData.append("image", image.files[0]);
   try {
-    const res = await axios.post("https://garigari-backend.herokuapp.com/post", formData, {
-      headers: {'Content-Type': 'multipart/form-data'}
-    })
-    console.log(res)
-    return res
+    const res = await axios.post(
+      "https://garigari-backend.herokuapp.com/post",
+      formData,
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
+    console.log(res);
+    return res;
   } catch (error) {
-    alert(error.toString())
+    alert(error.toString());
   }
   // TODO: 投稿する
   // バックエンドに投げて npm i axios
