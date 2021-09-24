@@ -9,9 +9,9 @@ import {
   Button,
   useDisclosure,
   Lorem,
-  Text
+  Text,
 } from "@chakra-ui/react";
-import { FaHeart } from 'react-icons/fa'
+import { FaHeart } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
 import picture from "../assets/star5.jpg";
 
@@ -36,7 +36,9 @@ function Model() {
           <ModalCloseButton />
 
           <ModalFooter>
-            <Button variant="ghost"><FaHeart /> 10</Button>
+            <Button variant="ghost">
+              <FaHeart /> 10
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

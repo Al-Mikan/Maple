@@ -13,16 +13,19 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import {useState} from "react";
-import { getPosition } from "../utils";
+import { useState, useRef } from "react";
+import { getPosition, postToServer } from "../utils";
 
 const Post = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let [value, setValue] = useState("");
+  let [value2, setValue2] = useState("");
   let [lat, setLat] = useState("");
   let [lng, setLng] = useState("");
+  const imageRef = useRef();
 
   let handleInputChange = (e) => {
+    console.log(e);
     let inputValue = e.target.value;
     setValue(inputValue);
   };
@@ -38,12 +41,9 @@ const Post = () => {
     });
   };
 
-  const handlePost = () => {
+  const handlePost = async () => {
     console.log("postするぞ");
-    // コメント
-    // 画像
-    // 位置情報をポスト // lat, lng
-    console.log(value, lat, lng)
+    const res = await postToServer("おれ", value, lat, lng, imageRef.current);
   };
 
   return (
@@ -56,7 +56,13 @@ const Post = () => {
         <ModalContent>
           <ModalHeader></ModalHeader>
           <ModalBody>
-            <input type="file" id="example" accept="image/jpeg, image/png" />
+            <input
+              type="file"
+              id="example"
+              ref={imageRef}
+              required
+              accept="image/jpeg, image/png"
+            />
           </ModalBody>
           <ModalBody>
             <Text mb="8px">コメント</Text>

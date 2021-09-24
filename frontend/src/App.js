@@ -9,7 +9,6 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Post from "./components/post";
 
-
 function App() {
   return (
     <ChakraProvider>
