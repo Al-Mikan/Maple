@@ -38,13 +38,8 @@ export default function GoogleMapComponent() {
   useEffect(() => {
     if (isLoaded) {
       getAllPosts().then((data) => {
-        console.log(data);
         setPins(data.data);
       });
-      // 初手でデータの取得
-      // let inputPins = ???;
-      // setPinsで保存
-      // setPins(inputPins);
     }
   }, [isLoaded]);
 
@@ -65,7 +60,7 @@ export default function GoogleMapComponent() {
     >
       {/* TODO: placeinfo に取得した pins を propsで渡す */}
       {/* TODO: それを描画してもらう */}
-      <PlaceInfo />
+      <PlaceInfo pins={pins} />
     </GoogleMap>
   );
 }

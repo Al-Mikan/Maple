@@ -5,7 +5,6 @@ import GoogleMap from "../components/Googlemap";
 const Toppage = () => {
   return (
     <div className={styles.Toppagewrapper}>
-      <View />
       <GoogleMap />
     </div>
   );

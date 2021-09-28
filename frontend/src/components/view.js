@@ -8,36 +8,44 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Lorem,
   Text,
 } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
 import picture from "../assets/star5.jpg";
+import { favorite } from "../utils";
+import { useState, useEffect } from "react";
 
-function Model() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+function PostDetail({ isOpen, onOpen, onClose, post }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(0);
+  }, [isOpen]);
+
+  function handleFavorite() {
+    favorite(post.id);
+    setCount(count + 1);
+  }
+
   return (
     <>
-      <Button onClick={onOpen}>Pin</Button>
-
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader></ModalHeader>
           <ModalBody>
-            <img className={styles.picture} src={picture} />
-            <div className={styles.modal_text}></div>
+            <img className={styles.picture} src={post.imagePath} />
           </ModalBody>
           <ModalBody>
-            <Text>テキスト</Text>
+            <Text>{post.comment}</Text>
           </ModalBody>
 
           <ModalCloseButton />
 
           <ModalFooter>
-            <Button variant="ghost">
-              <FaHeart /> 10
+            <Button variant="ghost" onClick={handleFavorite}>
+              <FaHeart /> {post.favorites + count}
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -46,4 +54,4 @@ function Model() {
   );
 }
 
-export default Model;
+export default PostDetail;

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const baseUrl = "https://garigari-backend.herokuapp.com/";
+
 function getLocation(options) {
   return new Promise((resolve, reject) =>
     navigator.geolocation.getCurrentPosition(resolve, reject, options)
@@ -21,45 +23,12 @@ export const getPosition = async () => {
 };
 
 export const getAllPosts = async () => {
-  return {
-    status: "ok",
-    count: 3,
-    data: [
-      {
-        id: 1,
-        garigariName: "takapiro",
-        comment: "きれい～",
-        lat: 43,
-        lng: 141,
-        photoUrl:
-          "https://thumb.photo-ac.com/ae/ae0849b14c2295c222ec346b9571389f_t.jpeg",
-        genre: "風景",
-        favorites: 0,
-      },
-      {
-        id: 1,
-        garigariName: "usatyo",
-        comment: "きれいすぎる",
-        lat: 43.1,
-        lng: 141.1,
-        photoUrl:
-          "https://thumb.photo-ac.com/ae/ae0849b14c2295c222ec346b9571389f_t.jpeg",
-        genre: "風景",
-        favorites: 0,
-      },
-      {
-        id: 1,
-        garigariName: "takapiro2",
-        comment: "きれい",
-        lat: 43.2,
-        lng: 141.2,
-        photoUrl:
-          "https://thumb.photo-ac.com/ae/ae0849b14c2295c222ec346b9571389f_t.jpeg",
-        genre: "風景",
-        favorites: 0,
-      },
-    ],
-  };
+  try {
+    const res = await axios.get(baseUrl + "posts");
+    return res.data;
+  } catch (error) {
+    alert(error.toString());
+  }
 };
 
 // jsdoc
@@ -85,13 +54,9 @@ export const postToServer = async (garigariName, comment, lat, lng, image) => {
   formData.append("lng", lng);
   formData.append("image", image.files[0]);
   try {
-    const res = await axios.post(
-      "https://garigari-backend.herokuapp.com/post",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
+    const res = await axios.post(baseUrl + "post", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
     console.log(res);
     return res;
   } catch (error) {
@@ -110,7 +75,14 @@ export const postToServer = async (garigariName, comment, lat, lng, image) => {
  * @param {number} postId 投稿のID
  * @return {boolean} 成功した場合 true
  */
-export const favorite = (postId) => {
-  // TODO: いいねする
+export const favorite = async (postId) => {
+  axios
+    .post(baseUrl + "favorite", null, {
+      params: { post_id: postId },
+    })
+    .then(function (response) {
+      console.log(response);
+    });
+  console.log(postId + "にいいね！");
   return true;
 };
