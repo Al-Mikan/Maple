@@ -19,7 +19,6 @@ import { getPosition, postToServer } from "../utils";
 const Post = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let [value, setValue] = useState("");
-  let [value2, setValue2] = useState("");
   let [lat, setLat] = useState("");
   let [lng, setLng] = useState("");
   const imageRef = useRef();
@@ -43,7 +42,7 @@ const Post = () => {
 
   const handlePost = async () => {
     console.log("postするぞ");
-    const res = await postToServer("おれ", value, lat, lng, imageRef.current);
+    await postToServer("おれ", value, lat, lng, imageRef.current);
   };
 
   return (

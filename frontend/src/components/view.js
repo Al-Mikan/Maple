@@ -7,12 +7,10 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  useDisclosure,
   Text,
 } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
-import picture from "../assets/star5.jpg";
 import { favorite } from "../utils";
 import { useState, useEffect } from "react";
 
@@ -35,7 +33,11 @@ function PostDetail({ isOpen, onOpen, onClose, post }) {
         <ModalContent>
           <ModalHeader></ModalHeader>
           <ModalBody>
-            <img className={styles.picture} src={post.imagePath} />
+            <img
+              className={styles.picture}
+              src={post.imagePath}
+              alt={post.comment}
+            />
           </ModalBody>
           <ModalBody>
             <Text>{post.comment}</Text>

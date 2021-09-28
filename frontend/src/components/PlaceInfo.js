@@ -1,17 +1,6 @@
 import React, { useState } from "react";
-import { Marker, InfoWindow } from "@react-google-maps/api";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  useDisclosure,
-  Text,
-} from "@chakra-ui/react";
+import { Marker } from "@react-google-maps/api";
+import { useDisclosure } from "@chakra-ui/react";
 import PostDetail from "./view";
 
 export default function PlaceInfo({ pins }) {

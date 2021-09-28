@@ -1,4 +1,3 @@
-import { Img } from "@chakra-ui/image";
 import styles from "../styles/header.module.css";
 
 const Header = () => {
