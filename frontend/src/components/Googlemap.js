@@ -65,7 +65,7 @@ export default function GoogleMapComponent() {
     >
       {/* TODO: placeinfo に取得した pins を propsで渡す */}
       {/* TODO: それを描画してもらう */}
-      <PlaceInfo />
+      <PlaceInfo pins={pins} />
     </GoogleMap>
   );
 }

@@ -8,26 +8,23 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Lorem,
   Text,
 } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
 import picture from "../assets/star5.jpg";
 
-function Model() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+function PostDetail({ isOpen, onOpen, onClose, post }) {
+  console.log(post)
   return (
     <>
-      <Button onClick={onOpen}>Pin</Button>
-
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader></ModalHeader>
           <ModalBody>
-            <img className={styles.picture} src={picture} />
-            <div className={styles.modal_text}></div>
+            <img className={styles.picture} src={post.imagePath} />
+            <div className={styles.modal_text}>あああ</div>
           </ModalBody>
           <ModalBody>
             <Text>テキスト</Text>
@@ -46,4 +43,4 @@ function Model() {
   );
 }
 
-export default Model;
+export default PostDetail;
