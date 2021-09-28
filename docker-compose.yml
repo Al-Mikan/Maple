@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+    command: sh -c "yarn && yarn start"
+    ports:
+      - "3000:3000"
+
+# docker-compose up
