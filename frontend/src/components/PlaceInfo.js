@@ -10,16 +10,18 @@ export default function PlaceInfo({ pins }) {
 
   const clusterStyles = [
     {
-      textColor: "black",
+      textColor: "white",
       url: "../clusterpin.png",
-      height: 50,
-      width: 50,
+      height: 500,
+      width: 500,
+      textSize: 100,
+      className: "clusterIcon",
     },
   ];
 
   const options = {
     gridSize: 50,
-    // styles: clusterStyles,
+    styles: clusterStyles,
     maxZoom: 15,
   };
 
