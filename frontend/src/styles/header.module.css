@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap");
+
+.Headerwrapper {
+  width: 100%;
+  padding: 15px;
+  background-color: darkseagreen;
+}
+
+.Headerlogo {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin: 5px;
+}
+
+.Headertitle {
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px;
+  font-family: "Poppins", sans-serif;
+}
