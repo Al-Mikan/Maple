@@ -14,9 +14,13 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: install dependencies
-        run: npm i && npm run build
+        run: npm i
         working-directory: ./frontend
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: build react app
+        run: npm run build
+        working-directory: ./frontend
+      - name: deploy to firebase hosing
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entrypoint: ./frontend
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
