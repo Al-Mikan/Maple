@@ -1,4 +1,5 @@
-import styles from "../styles/post.module.css";
+import "../styles/modal_view.css";
+import { BsPencil } from "react-icons/bs";
 
 import {
   Modal,
@@ -12,6 +13,8 @@ import {
   useDisclosure,
   Text,
   Textarea,
+  Spinner,
+  EditIcon
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import { getPosition, postToServer } from "../utils";
@@ -22,6 +25,7 @@ const Post = () => {
   let [lat, setLat] = useState("");
   let [lng, setLng] = useState("");
   const imageRef = useRef();
+  const [load, setLoad] = useState(false);
 
   let handleInputChange = (e) => {
     console.log(e);
@@ -42,14 +46,30 @@ const Post = () => {
 
   const handlePost = async () => {
     console.log("postするぞ");
+    setLoad(true);
     await postToServer("おれ", value, lat, lng, imageRef.current);
+    setLoad(false);
   };
 
   return (
     <div>
-      <Button className={styles.post} colorScheme="red" onClick={position}>
-        <span>+</span>
+      <Button
+        leftIcon={<BsPencil />}
+        color="#d47c3c"
+        className="postButton"
+        onClick={position}
+        p={9}
+        fontSize={25}
+        borderRadius={50}
+        mt={"550px"}
+        ml={"70%"}
+        boxShadow={"2px 2px grey"}
+        transition="0.4s"
+        _hover={{color:"white" ,bgColor:"#d47c3c" }}
+      >
+      投稿
       </Button>
+ 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -71,6 +91,16 @@ const Post = () => {
               placeholder="ここにコメントを書いてね！"
               size="md"
             />
+            {load && (
+              <Spinner
+                className="loadingIcon"
+                size="xl"
+                thickness="4px"
+                speed="0.9s"
+                emptyColor="gray.200"
+                color="blue.500"
+              />
+            )}
           </ModalBody>
           <ModalCloseButton />
           <ModalFooter>

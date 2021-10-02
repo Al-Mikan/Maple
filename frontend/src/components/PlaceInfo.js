@@ -7,7 +7,7 @@ export default function PlaceInfo({ pins }) {
   console.log(pins);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selected, setSelected] = useState(null);
-
+  
   return (
     <>
       {pins.map((marker) => (

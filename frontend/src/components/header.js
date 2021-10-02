@@ -1,14 +1,17 @@
-import styles from "../styles/header.module.css";
+import "../styles/header.css";
+import MapleLogo from "../assets/MAPLE.png"
+import MapleLogo2 from "../assets/MAPLE2.png"
 
 const Header = () => {
+  
   return (
-    <div className={styles.Headerwrapper}>
+    <div >
       <img
-        className={styles.Headerlogo}
-        src={`${process.env.PUBLIC_URL}/logo512.png`}
+        className="Headerlogo"
+        src={MapleLogo2}
         alt="Logo"
       />
-      <p className={styles.Headertitle}>GariGaristagram</p>
+ 
     </div>
   );
 };

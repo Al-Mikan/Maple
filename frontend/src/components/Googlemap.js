@@ -2,13 +2,18 @@ import React, { useCallback, useRef, useState, useEffect } from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import PlaceInfo from "./PlaceInfo";
 import { getAllPosts } from "../utils";
+import { Spinner } from "@chakra-ui/react";
+import "../styles/modal_view.css"
+import PostButton from "./post"
+import Header from "./header";
+import Footer from "./footer";
 // import mapStyles from "./mapUtils/mapStyles";
 // 地図のデザインを指定することができます。
 // デザインは https://snazzymaps.com からインポートすることができます。
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  height: "90vh",
+  height: "100vh",
   width: "100%",
 };
 // 地図の大きさを指定します。
@@ -23,6 +28,8 @@ const options = {
 export default function GoogleMapComponent() {
   console.log(process.env.REACT_APP_googleMapsApiKey);
   const [pins, setPins] = useState([]);
+
+  const [load, setLoad] = useState(true);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyBD6NxRqB5cqcDexWejFUubgObA54SwB54",
@@ -39,6 +46,7 @@ export default function GoogleMapComponent() {
     if (isLoaded) {
       getAllPosts().then((data) => {
         setPins(data.data);
+        setLoad(false);
       });
     }
   }, [isLoaded]);
@@ -48,9 +56,10 @@ export default function GoogleMapComponent() {
 
   return (
     <GoogleMap
+      className="GoogleMap"
       id="map"
       mapContainerStyle={mapContainerStyle}
-      zoom={8} // デフォルトズーム倍率を指定します。
+      zoom={7} // デフォルトズーム倍率を指定します。
       center={{
         lat: 43.048225,
         lng: 141.49701,
@@ -58,9 +67,20 @@ export default function GoogleMapComponent() {
       options={options}
       onLoad={onMapLoad}
     >
+      <Header />
       {/* TODO: placeinfo に取得した pins を propsで渡す */}
       {/* TODO: それを描画してもらう */}
       <PlaceInfo pins={pins} />
+      <Footer />
+
+      {load && <Spinner className="loadingIcon"
+        size="xl"
+        thickness="4px"
+        speed="0.9s"
+        emptyColor="gray.200"
+        color="blue.500"/>}
+        <PostButton />
     </GoogleMap>
+    
   );
 }

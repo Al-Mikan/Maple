@@ -9,7 +9,7 @@ import {
   Button,
   Text,
 } from "@chakra-ui/react";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaTwitter } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
 import { favorite } from "../utils";
 import { useState, useEffect } from "react";
@@ -46,8 +46,16 @@ function PostDetail({ isOpen, onOpen, onClose, post }) {
           <ModalCloseButton />
 
           <ModalFooter>
-            <Button variant="ghost" onClick={handleFavorite}>
-              <FaHeart /> {post.favorites + count}
+            <Button colorScheme="twitter" leftIcon={<FaTwitter />}>
+              share
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={handleFavorite}
+              leftIcon={<FaHeart color={"red"}/>}
+              ml={15}
+            >
+              {post.favorites + count}
             </Button>
           </ModalFooter>
         </ModalContent>
