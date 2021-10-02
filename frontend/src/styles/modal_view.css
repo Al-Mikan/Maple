@@ -13,3 +13,6 @@
   left: 0;
   margin: auto;
 }
+.pencilIcon{
+  transform: translateX(-4px);
+}

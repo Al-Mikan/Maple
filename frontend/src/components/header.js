@@ -1,6 +1,5 @@
 import "../styles/header.css";
 import MapleLogo from "../assets/MAPLE.png"
-import MapleLogo2 from "../assets/MAPLE2.png"
 
 const Header = () => {
   
@@ -8,7 +7,7 @@ const Header = () => {
     <div >
       <img
         className="Headerlogo"
-        src={MapleLogo2}
+        src={MapleLogo}
         alt="Logo"
       />
  

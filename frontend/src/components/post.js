@@ -14,7 +14,7 @@ import {
   Text,
   Textarea,
   Spinner,
-  EditIcon
+  EditIcon,
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import { getPosition, postToServer } from "../utils";
@@ -52,24 +52,26 @@ const Post = () => {
   };
 
   return (
-    <div>
+    <div >
       <Button
-        leftIcon={<BsPencil />}
+        rightIcon={<span className="pencilIcon"><BsPencil size={25} /></span>}
+        position={"absolute"}
         color="#d47c3c"
         className="postButton"
         onClick={position}
         p={9}
         fontSize={25}
         borderRadius={50}
-        mt={"550px"}
-        ml={"70%"}
-        boxShadow={"2px 2px grey"}
+        bottom={"40px"}
+        right={"65px"}
+        // boxShadow={"2px 2px grey"}
+        boxShadow={"lg"}
         transition="0.4s"
-        _hover={{color:"white" ,bgColor:"#d47c3c" }}
+        width="20px"
+        _hover={{ color: "white", bgColor: "#d47c3c" }}
       >
-      投稿
+        
       </Button>
- 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
