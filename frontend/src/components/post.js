@@ -14,7 +14,6 @@ import {
   Text,
   Textarea,
   Spinner,
-  EditIcon,
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import { getPosition, postToServer } from "../utils";

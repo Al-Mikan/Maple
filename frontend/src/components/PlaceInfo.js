@@ -23,7 +23,7 @@ export default function PlaceInfo({ pins }) {
         alert("該当の投稿はないよ、残念")
       }
     }
-  },[pins])
+  },[pins]) //eslint-disable-line
 
   const clusterStyles = [
     {
