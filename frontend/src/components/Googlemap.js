@@ -14,7 +14,8 @@ import Footer from "./footer";
 const libraries = ["places"];
 const mapContainerStyle = {
   height: `${window.innerHeight}px`,
-  width: `${window.innerWidth}px`,
+  // width: `${window.innerWidth}px`,
+  width: `100%`,
 };
 // 地図の大きさを指定します。
 
