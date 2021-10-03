@@ -52,9 +52,13 @@ const Post = () => {
   };
 
   return (
-    <div >
+    <div>
       <Button
-        rightIcon={<span className="pencilIcon"><BsPencil size={25} /></span>}
+        rightIcon={
+          <span className="pencilIcon">
+            <BsPencil size={25} />
+          </span>
+        }
         position={"absolute"}
         color="#d47c3c"
         className="postButton"
@@ -69,9 +73,7 @@ const Post = () => {
         transition="0.4s"
         width="20px"
         _hover={{ color: "white", bgColor: "#d47c3c" }}
-      >
-        
-      </Button>
+      ></Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

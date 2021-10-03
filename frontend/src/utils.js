@@ -46,7 +46,6 @@ export const postToServer = async (garigariName, comment, lat, lng, image) => {
   // バリデーション validation
   const formData = new FormData();
 
-
   // formData.append("garigariName", "おれ") // 保留
   if (!image.files.length) {
     return false;

@@ -8,9 +8,16 @@
   /* box-shadow: 2px 2px rgb(82, 51, 22); */
   z-index: 1;
   transition: 1s;
-  transform:rotateY(0deg);
+  transform: rotateY(0deg);
 }
-.Headerlogo:hover{
-    transform: rotateY(360deg);
+.Headerlogo:hover {
+  transform: rotateY(360deg);
 }
 /* @media */
+@media screen and (max-width: 400px) {
+  .Headerlogo {
+    width: 65px;
+    height: 65px;
+    border-radius: 20px;
+  }
+}

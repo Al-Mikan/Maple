@@ -3,8 +3,8 @@ import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import PlaceInfo from "./PlaceInfo";
 import { getAllPosts } from "../utils";
 import { Spinner } from "@chakra-ui/react";
-import "../styles/modal_view.css"
-import PostButton from "./post"
+import "../styles/modal_view.css";
+import PostButton from "./post";
 import Header from "./header";
 import Footer from "./footer";
 // import mapStyles from "./mapUtils/mapStyles";
@@ -73,14 +73,17 @@ export default function GoogleMapComponent() {
       <PlaceInfo pins={pins} />
       <Footer />
 
-      {load && <Spinner className="loadingIcon"
-        size="xl"
-        thickness="4px"
-        speed="0.9s"
-        emptyColor="gray.200"
-        color="blue.500"/>}
-        <PostButton />
+      {load && (
+        <Spinner
+          className="loadingIcon"
+          size="xl"
+          thickness="4px"
+          speed="0.9s"
+          emptyColor="gray.200"
+          color="blue.500"
+        />
+      )}
+      <PostButton />
     </GoogleMap>
-    
   );
 }

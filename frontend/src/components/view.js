@@ -13,8 +13,9 @@ import { FaHeart, FaTwitter } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
 import { favorite } from "../utils";
 import { useState, useEffect } from "react";
+import { TwitterShareButton, TwitterIcon } from "react-share";
 
-function PostDetail({ isOpen, onOpen, onClose, post }) {
+function PostDetail({ isOpen, onOpen, onClose, post, postId }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -46,13 +47,20 @@ function PostDetail({ isOpen, onOpen, onClose, post }) {
           <ModalCloseButton />
 
           <ModalFooter>
-            <Button colorScheme="twitter" leftIcon={<FaTwitter />}>
+            <TwitterShareButton
+              url={"https://garigari-stagram.web.app/" + { postId }}
+            >
+              <TwitterIcon size={35} round />
+            </TwitterShareButton>
+
+            {/* <Button colorScheme="twitter" leftIcon={<FaTwitter />}>
               share
-            </Button>
+            </Button> */}
+
             <Button
               variant="ghost"
               onClick={handleFavorite}
-              leftIcon={<FaHeart color={"red"}/>}
+              leftIcon={<FaHeart color={"red"} />}
               ml={15}
             >
               {post.favorites + count}
