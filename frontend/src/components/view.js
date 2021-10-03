@@ -10,7 +10,6 @@ import {
   Text,
   Tag,
   TagLabel,
-  _hover,
 } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
