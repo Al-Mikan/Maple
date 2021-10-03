@@ -62,7 +62,7 @@ const Post = () => {
     const imageFile = event.target.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
     setFileUrl(imageUrl);
-  }
+  };
 
   return (
     <div>
@@ -72,6 +72,7 @@ const Post = () => {
             <BsPencil size={25} />
           </span>
         }
+        zIndex={"1"}
         position={"absolute"}
         color="#d47c3c"
         className="postButton"
