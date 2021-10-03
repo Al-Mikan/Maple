@@ -16,14 +16,14 @@
 .pencilIcon {
   transform: translateX(-4px);
 }
-.heartButton{
+.heartButton {
   margin-left: 12px;
   position: relative;
   display: inline-block;
   border-radius: 5px;
   border: 2px solid transparent;
 
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: bold;
   font-size: 20px;
   letter-spacing: 0.1em;
@@ -44,13 +44,13 @@
 }
 
 .heartButton::before {
-  background-image: url('../assets/heart.svg');
+  background-image: url("../assets/heart.svg");
   top: 0;
   left: -12px;
 }
 
 .heartButton::after {
-  background-image: url('../assets/heart-reverse.svg');
+  background-image: url("../assets/heart-reverse.svg");
   bottom: -6px;
   right: -14px;
 }
@@ -88,14 +88,13 @@
 
 /* ========= SPのスタイル ======== */
 @media screen and (max-width: 768px) {
-
   /* ボタン本体のスタイル */
   .heart-button {
     background-color: #fff;
     border-color: #ef4b53;
     color: #ef4b53;
   }
-  
+
   /* 左上のハートのスタイル */
   .heart-button::before {
     animation: heart 1.5s infinite ease-out;

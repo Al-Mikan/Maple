@@ -49,9 +49,9 @@ export default function GoogleMapComponent() {
   }, [isLoaded]);
 
   if (loadError) {
-    alert('error while loading google map.');
-    return <p>error while loading google map.: {loadError.toString()}</p>
-  };
+    alert("error while loading google map.");
+    return <p>error while loading google map.: {loadError.toString()}</p>;
+  }
   if (!isLoaded) return "Loading...";
 
   return (
