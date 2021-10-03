@@ -45,6 +45,10 @@ const Post = () => {
   };
 
   const handlePost = async () => {
+    if(!lat) {
+      alert("ブラウザで位置情報を許可してください");
+      return;
+    }
     console.log("postするぞ");
     setLoad(true);
     console.log(value, lat, lng);
