@@ -26,11 +26,8 @@ const options = {
 };
 
 export default function GoogleMapComponent() {
-  console.log(process.env.REACT_APP_googleMapsApiKey);
   const [pins, setPins] = useState([]);
-
   const [load, setLoad] = useState(true);
-
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyBD6NxRqB5cqcDexWejFUubgObA54SwB54",
     libraries,
@@ -40,7 +37,7 @@ export default function GoogleMapComponent() {
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
-  //API読み込み後に再レンダーを引き起こさないため、useStateを使わず、useRefとuseCallbackを使っています。
+  // API読み込み後に再レンダーを引き起こさないため、useStateを使わず、useRefとuseCallbackを使っています。
 
   useEffect(() => {
     if (isLoaded) {
@@ -51,7 +48,10 @@ export default function GoogleMapComponent() {
     }
   }, [isLoaded]);
 
-  if (loadError) return "Error";
+  if (loadError) {
+    alert("error while loading google map.");
+    return <p>error while loading google map.: {loadError.toString()}</p>;
+  }
   if (!isLoaded) return "Loading...";
 
   return (
@@ -68,7 +68,6 @@ export default function GoogleMapComponent() {
       onLoad={onMapLoad}
     >
       <Header />
-  
       <PlaceInfo pins={pins} />
       <Footer />
 
@@ -79,7 +78,7 @@ export default function GoogleMapComponent() {
           thickness="4px"
           speed="0.9s"
           emptyColor="gray.200"
-          color="blue.500"
+          color="orange.500"
         />
       )}
       <PostButton />

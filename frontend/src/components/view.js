@@ -8,6 +8,9 @@ import {
   ModalCloseButton,
   Button,
   Text,
+  Tag,
+  TagLabel,
+  _hover,
 } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
@@ -15,7 +18,7 @@ import { favorite } from "../utils";
 import { useState, useEffect } from "react";
 import { TwitterShareButton, TwitterIcon } from "react-share";
 
-function PostDetail({ isOpen, onOpen, onClose, post, postId }) {
+function PostDetail({ isOpen, onClose, post }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -47,24 +50,43 @@ function PostDetail({ isOpen, onOpen, onClose, post, postId }) {
           <ModalCloseButton />
 
           <ModalFooter>
-            <TwitterShareButton
-              url={"https://garigari-stagram.web.app/" + { postId }}
+            <div
+              style={{
+                display: "inline-block",
+                marginLeft: 0,
+                marginRight: "auto",
+                color: "#444",
+              }}
             >
-              <TwitterIcon size={35} round />
+              {post.genre.split(";").map((genre, i) => (
+                <Tag mr={2} key={i}>
+                  <TagLabel key={i} fontWeight={600}>
+                    # {genre}
+                  </TagLabel>
+                </Tag>
+              ))}
+            </div>
+            <TwitterShareButton
+              url={`https://maple-maple.web.app/${post.id}`}
+              title="maple で知らない土地の良さを再発見しよう！"
+              hashtags={["maple", "旅行", ...post.genre.split(";")]}
+            >
+              <TwitterIcon size={35} borderRadius={50} />
             </TwitterShareButton>
 
             {/* <Button colorScheme="twitter" leftIcon={<FaTwitter />}>
               share
             </Button> */}
-
-            <Button
-              variant="ghost"
-              onClick={handleFavorite}
-              leftIcon={<FaHeart color={"red"} />}
-              ml={15}
-            >
-              {post.favorites + count}
-            </Button>
+            <div className="heartButton">
+              <Button
+                variant="ghost"
+                onClick={handleFavorite}
+                leftIcon={<FaHeart color={"red"} />}
+                // ml={15}
+              >
+                {post.favorites + count}
+              </Button>
+            </div>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -1,6 +1,6 @@
 import "../styles/modal_view.css";
 import { BsPencil } from "react-icons/bs";
-
+import React from "react";
 import {
   Modal,
   ModalOverlay,
@@ -47,8 +47,10 @@ const Post = () => {
   const handlePost = async () => {
     console.log("postするぞ");
     setLoad(true);
+    console.log(value, lat, lng);
     await postToServer("おれ", value, lat, lng, imageRef.current);
     setLoad(false);
+    onClose();
   };
 
   const handlePreview = async (event) => {
@@ -108,15 +110,15 @@ const Post = () => {
                 className="loadingIcon"
                 size="xl"
                 thickness="4px"
-                speed="0.9s"
-                emptyColor="gray.200"
-                color="blue.500"
+                speed="1.0s"
+                emptyColor="grey.200"
+                color="orange.500"
               />
             )}
           </ModalBody>
           <ModalCloseButton />
           <ModalFooter>
-            <Button variant="ghost" onClick={handlePost}>
+            <Button variant="ghost" onClick={handlePost} isDisabled={load}>
               保存
             </Button>
           </ModalFooter>
