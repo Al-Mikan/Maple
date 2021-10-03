@@ -51,6 +51,7 @@ const Post = () => {
     await postToServer("おれ", value, lat, lng, imageRef.current);
     setLoad(false);
     onClose();
+    setFileUrl(null);
   };
 
   const handlePreview = async (event) => {
