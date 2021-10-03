@@ -2,7 +2,6 @@ import "../styles/header.css";
 import MapleLogo from "../assets/MAPLE.png";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
-import { Button } from "@chakra-ui/react";
 const Header = () => {
   const [headerOpen, setHeaderOpen] = useState(false);
   return (
@@ -26,13 +25,12 @@ const Header = () => {
             たくさん投稿してその土地のいいところを伝えよう
           </p>
         </div>
-        <Button
+        <button
+          style={{color: '#222', background:'#ddd', padding: '10px', borderRadius: '15px'}}
           onClick={() => setHeaderOpen(!headerOpen)}
-          borderRadius={20}
-          marginBottom={10}
         >
-          close
-        </Button>
+          <span>close</span>
+        </button>
         <div className="footer">
           <p className="teamName">ガリガリ君</p>
           <a
@@ -41,7 +39,7 @@ const Header = () => {
             rel="noreferrer"
           >
             <div className="icon1">
-              <FaGithub size={20} color="#eee" />
+              <FaGithub size={30} color="#eee" />
             </div>
           </a>
         </div>

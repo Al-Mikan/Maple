@@ -36,7 +36,7 @@
 
 .headerOpen {
   transform: translate(-100px, -100px);
-  transition: all 1.3s ease-in-out;
+  transition: all 0.8s ease-in-out;
   top: 0px;
   left: 0px;
   width: 150vw;
@@ -50,7 +50,8 @@
 
 .about_content {
   visibility: hidden;
-  transition: all 0.5s ease 1s;
+  transform: translate(-50%, -45%);
+  transition: all 0.5s ease 0s;
 }
 
 .about_content > * {
@@ -59,17 +60,18 @@
 
 .about_content_show {
   visibility: visible;
+  opacity: 1;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* プロパティ名 | 時間 | イージング関数 | 遅延 */
-  transition: all 0.5s ease 1.5s;
+  transition: all 0.5s ease 1s;
   z-index: 2;
 }
 
 .about_content_show > * {
-  transition: all 0.5s ease 1.5s;
+  transition: all 0.5s ease 1s;
   visibility: visible;
   z-index: 2;
 }
@@ -103,6 +105,7 @@
 .icon1 {
   display: inline-block;
   cursor: pointer;
+  margin: 10px;
   z-index: 2;
 }
 .teamName {
@@ -122,7 +125,7 @@
   .MAPLE_sub2 {
     font-size: 15px;
   }
-  .footer {
-    display: flex;
-  }
+  /* .footer { */
+    /* display: flex; */
+  /* } */
 }
