@@ -10,6 +10,8 @@
   margin-left: 30px;
   /* box-shadow: 2px 2px rgb(82, 51, 22); */
   z-index: 3;
+  user-select: none;
+  cursor: pointer;
 }
 
 /* @media */
@@ -36,7 +38,7 @@
 
 .headerOpen {
   transform: translate(-100px, -100px);
-  transition: all 0.8s ease-in-out;
+  transition: all 0.6s ease-in-out;
   top: 0px;
   left: 0px;
   width: 150vw;
@@ -51,7 +53,7 @@
 .about_content {
   visibility: hidden;
   transform: translate(-50%, -45%);
-  transition: all 0.5s ease 0s;
+  transition: all 0.6s ease 0s;
 }
 
 .about_content > * {
@@ -66,12 +68,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   /* プロパティ名 | 時間 | イージング関数 | 遅延 */
-  transition: all 0.5s ease 1s;
+  transition: all 0.5s ease 0.5s;
   z-index: 2;
 }
 
 .about_content_show > * {
-  transition: all 0.5s ease 1s;
+  transition: all 0.5s ease 0.5s;
   visibility: visible;
   z-index: 2;
 }
