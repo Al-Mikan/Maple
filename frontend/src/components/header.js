@@ -21,15 +21,29 @@ const Header = () => {
       >
         <div>
           <p className="MAPLE_title">MAPLE</p>
-          <p className="MAPLE-sub">Map　×　Photo</p>
-          <p></p>
+          <p className="MAPLE_sub">地図が主役の写真集 MAPLE</p>
+          <p className="MAPLE_sub2">
+            たくさん投稿してその土地のいいところを伝えよう
+          </p>
         </div>
-        <Button onClick={() => setHeaderOpen(!headerOpen)} borderRadius={20}>
+        <Button
+          onClick={() => setHeaderOpen(!headerOpen)}
+          borderRadius={20}
+          marginBottom={10}
+        >
           close
         </Button>
         <div className="footer">
-          <p>ガリガリ君</p>
-          <FaGithub />
+          <p className="teamName">ガリガリ君</p>
+          <a
+            href="https://github.com/Nano3013/garigarikun"
+            target="blank"
+            rel="noreferrer"
+          >
+            <div className="icon1">
+              <FaGithub size={20} color="#eee" />
+            </div>
+          </a>
         </div>
       </div>
     </>
