@@ -14,7 +14,6 @@ import {
   Text,
   Textarea,
   Spinner,
-  EditIcon,
 } from "@chakra-ui/react";
 import { useState, useRef } from "react";
 import { getPosition, postToServer } from "../utils";
@@ -26,6 +25,7 @@ const Post = () => {
   let [lng, setLng] = useState("");
   const imageRef = useRef();
   const [load, setLoad] = useState(false);
+  const [fileUrl, setFileUrl] = useState(null);
 
   let handleInputChange = (e) => {
     console.log(e);
@@ -50,6 +50,12 @@ const Post = () => {
     await postToServer("おれ", value, lat, lng, imageRef.current);
     setLoad(false);
   };
+
+  const handlePreview = async (event) => {
+    const imageFile = event.target.files[0];
+    const imageUrl = URL.createObjectURL(imageFile);
+    setFileUrl(imageUrl);
+  }
 
   return (
     <div>
@@ -85,7 +91,9 @@ const Post = () => {
               ref={imageRef}
               required
               accept="image/jpeg, image/png"
+              onChange={handlePreview}
             />
+            <img src={fileUrl} alt={fileUrl}/>
           </ModalBody>
           <ModalBody>
             <Text mb="8px">コメント</Text>
