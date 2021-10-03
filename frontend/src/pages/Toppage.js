@@ -1,9 +1,9 @@
-import styles from "../styles/Toppage.module.css";
+import "../styles/Toppage.css";
 import GoogleMap from "../components/Googlemap";
 
 const Toppage = () => {
   return (
-    <div className={styles.Toppagewrapper}>
+    <div className="ToppageWrapper">
       <GoogleMap />
     </div>
   );
