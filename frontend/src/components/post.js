@@ -96,7 +96,9 @@ const Post = () => {
               accept="image/jpeg, image/png"
               onChange={handlePreview}
             />
-            <img src={fileUrl} alt={fileUrl}/>
+            <div className="previewImg">
+              <img src={fileUrl} alt={fileUrl}/>
+            </div>
           </ModalBody>
           <ModalBody>
             <Text mb="8px">コメント</Text>
