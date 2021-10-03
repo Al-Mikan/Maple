@@ -8,6 +8,8 @@ import {
   ModalCloseButton,
   Button,
   Text,
+  Tag,
+  TagLabel
 } from "@chakra-ui/react";
 import { FaHeart　} from "react-icons/fa";
 import styles from "../styles/modal_view.css";
@@ -47,10 +49,17 @@ function PostDetail({ isOpen, onClose, post }) {
           <ModalCloseButton />
 
           <ModalFooter>
+          <div style={{display:'inline-block', marginLeft:0, marginRight:"auto", color:'#444'}}>
+              {post.genre.split(";").map((genre, i)=>
+               ( <Tag mr={2} key={i}>
+                    <TagLabel key={i}># {genre}</TagLabel>
+                </Tag>)
+              )}
+              </div>
             <TwitterShareButton
               url={`https://maple-maple.web.app/${post.id}`}
               title="maple で知らない土地の良さを再発見しよう！"
-              hashtags={["maple", "旅行"]}
+              hashtags={["maple", "旅行", ...post.genre.split(";")]}
             >
               <TwitterIcon size={35} round />
             </TwitterShareButton>
