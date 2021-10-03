@@ -45,12 +45,17 @@ const Post = () => {
   };
 
   const handlePost = async () => {
+    if(!lat) {
+      alert("ブラウザで位置情報を許可してください");
+      return;
+    }
     console.log("postするぞ");
     setLoad(true);
     console.log(value, lat, lng);
     await postToServer("おれ", value, lat, lng, imageRef.current);
     setLoad(false);
     onClose();
+    setFileUrl(null);
   };
 
   const handlePreview = async (event) => {
@@ -96,7 +101,9 @@ const Post = () => {
               accept="image/jpeg, image/png"
               onChange={handlePreview}
             />
-            <img src={fileUrl} alt={fileUrl} />
+            <div className="previewImg">
+              <img src={fileUrl} alt={fileUrl}/>
+            </div>
           </ModalBody>
           <ModalBody>
             <Text mb="8px">コメント</Text>
