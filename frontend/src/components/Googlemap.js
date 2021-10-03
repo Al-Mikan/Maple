@@ -68,8 +68,7 @@ export default function GoogleMapComponent() {
       onLoad={onMapLoad}
     >
       <Header />
-      {/* TODO: placeinfo に取得した pins を propsで渡す */}
-      {/* TODO: それを描画してもらう */}
+  
       <PlaceInfo pins={pins} />
       <Footer />
 
