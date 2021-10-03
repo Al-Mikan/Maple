@@ -46,12 +46,11 @@ const Post = () => {
   const handlePost = async () => {
     console.log("postするぞ");
     setLoad(true);
-    console.log(value, lat, lng)
+    console.log(value, lat, lng);
     await postToServer("おれ", value, lat, lng, imageRef.current);
     setLoad(false);
     onClose();
   };
-
 
   return (
     <div>
@@ -76,7 +75,7 @@ const Post = () => {
         width="20px"
         _hover={{ color: "white", bgColor: "#d47c3c" }}
       ></Button>
-      <Modal isOpen={isOpen} onClose={onClose} >
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader></ModalHeader>
@@ -110,7 +109,7 @@ const Post = () => {
           </ModalBody>
           <ModalCloseButton />
           <ModalFooter>
-            <Button variant="ghost" onClick={handlePost} isDisabled={load} >
+            <Button variant="ghost" onClick={handlePost} isDisabled={load}>
               保存
             </Button>
           </ModalFooter>

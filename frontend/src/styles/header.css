@@ -20,41 +20,40 @@
   }
 }
 
-
-.about{
+.about {
   position: absolute;
-  top:40px;
-  left:40px;
+  top: 40px;
+  left: 40px;
   width: 0px;
   height: 0px;
   border-radius: 35px;
-  background:#cb4d00;
+  background: #cb4d00;
   transition: all 1s ease;
 }
 
-.headerOpen{
+.headerOpen {
   transform: translate(-100px, -100px);
   transition: all 1.3s ease-in-out;
-  top:0px;
-  left:0px;
+  top: 0px;
+  left: 0px;
   width: 150vw;
   height: 150vh;
   overflow: hidden;
-  background:#cb4d00;
+  background: #cb4d00;
   /* border-radius: 30% 70% 38% 62% / 50% 31% 69% 50% ; */
   border-radius: 250px;
 }
 
-.about_content{
+.about_content {
   visibility: hidden;
   transition: all 0.5s ease 1s;
 }
 
-.about_content>*{
+.about_content > * {
   visibility: hidden;
 }
 
-.about_content_show{
+.about_content_show {
   visibility: visible;
   position: fixed;
   top: 50%;
@@ -64,16 +63,16 @@
   transition: all 0.5s ease 1.5s;
 }
 
-.about_content_show>*{
+.about_content_show > * {
   transition: all 0.5s ease 1.5s;
   visibility: visible;
 }
 
-.MAPLE_title{
+.MAPLE_title {
   font-size: 110px;
   font-weight: 500;
   color: rgb(255, 232, 158);
 }
-.footer{
+.footer {
   color: white;
 }
