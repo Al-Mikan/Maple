@@ -15,7 +15,7 @@ import { favorite } from "../utils";
 import { useState, useEffect } from "react";
 import { TwitterShareButton, TwitterIcon } from "react-share";
 
-function PostDetail({ isOpen, onOpen, onClose, post, postId }) {
+function PostDetail({ isOpen, onClose, post }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -48,7 +48,9 @@ function PostDetail({ isOpen, onOpen, onClose, post, postId }) {
 
           <ModalFooter>
             <TwitterShareButton
-              url={"https://garigari-stagram.web.app/" + { postId }}
+              url={`https://maple-maple.web.app/${post.id}`}
+              title="maple で知らない土地の良さを再発見しよう！"
+              hashtags={["maple", "旅行"]}
             >
               <TwitterIcon size={35} round />
             </TwitterShareButton>

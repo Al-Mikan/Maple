@@ -78,7 +78,7 @@ export const postToServer = async (garigariName, comment, lat, lng, image) => {
  * @return {boolean} 成功した場合 true
  */
 export const favorite = async (postId) => {
-    
+
   axios
     .post(baseUrl + "favorite", null, {
       params: { post_id: postId },
