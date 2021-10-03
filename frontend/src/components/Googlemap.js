@@ -78,7 +78,7 @@ export default function GoogleMapComponent() {
           thickness="4px"
           speed="0.9s"
           emptyColor="gray.200"
-          color="blue.500"
+          color="orange.500"
         />
       )}
       <PostButton />

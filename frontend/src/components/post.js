@@ -1,6 +1,6 @@
 import "../styles/modal_view.css";
 import { BsPencil } from "react-icons/bs";
-
+import React from "react";
 import {
   Modal,
   ModalOverlay,
@@ -49,6 +49,7 @@ const Post = () => {
     await postToServer("おれ", value, lat, lng, imageRef.current);
     setLoad(false);
   };
+
 
   return (
     <div>
@@ -100,14 +101,14 @@ const Post = () => {
                 size="xl"
                 thickness="4px"
                 speed="0.9s"
-                emptyColor="gray.200"
-                color="blue.500"
+                emptyColor="grey.200"
+                color="orange.500"
               />
             )}
           </ModalBody>
           <ModalCloseButton />
           <ModalFooter>
-            <Button variant="ghost" onClick={handlePost}>
+            <Button variant="ghost" onClick={handlePost} >
               保存
             </Button>
           </ModalFooter>
