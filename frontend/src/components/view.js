@@ -9,7 +9,7 @@ import {
   Button,
   Text,
 } from "@chakra-ui/react";
-import { FaHeart, FaTwitter } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import styles from "../styles/modal_view.css";
 import { favorite } from "../utils";
 import { useState, useEffect } from "react";
